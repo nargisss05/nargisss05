@@ -1,0 +1,269 @@
+
+# Python Basic Exercise for Beginners
+
+# # ----------------------------------------------------------------
+# # Exercise 1: Calculate the multiplication and sum of two numbers
+# # ----------------------------------------------------------------
+number1 = 20
+number2 = 30
+multiplied = number1 * number2
+print("The result is " + str(multiplied))
+print("The number we get after multiplying " + str(number1 * number2))
+
+number_1 = 40
+number_2 = 30
+sums = number_1 + number_2
+print("\nThe result is " + str(sums) + "\n")
+
+# # KINDA COMPLEX ONE----->>
+
+
+def sum_or_into(num1, num2):
+    product = num1 * num2
+    a = num1 + num2
+    if product <= 1000:
+        return "The result is " + str(product)
+    return "The result is " + str(a)
+
+
+result = sum_or_into(number1, number2)
+print(result)
+result_1 = sum_or_into(number_1, number_2)
+print(result_1)
+
+
+# # ----------------------------------------------------------------
+# # Exercise 2: Print the sum of the current number and the previous number
+# # ----------------------------------------------------------------
+
+pre_num = 0
+
+for i in range(1, 11):
+    i_sum = pre_num + i
+    print(f"The previous number is {pre_num} and the current number is {i} and the sum is {i_sum} ")
+    pre_num = i
+
+# # ----------------------------------------------------------------
+# #  Exercise 3: Print characters from a string that are present at an even index number
+# # ----------------------------------------------------------------
+
+user = input("Enter any word or sentence:\n")
+a = len(user)
+
+for i in range(0, a-1, 2):
+    print(user[i])
+
+
+for items in range(0, a+1):
+    if items % 2 == 0:
+        print(user[items])
+    elif items % 2 == 1:
+        print(user[items])
+
+# # ----------------------------------------------------------------
+# #  Exercise 4: Remove first n characters from a string.
+# # ----------------------------------------------------------------
+
+a = "Pynative"
+user = int(input("Any no.: "))
+print(a[user:])
+
+# # ----------------------------------------------------------------
+# #  Exercise 5: Check if the first and last number of a list is the same
+# # ----------------------------------------------------------------
+
+numbers_x = [10, 20, 30, 40, 10]
+numbers_y = [75, 65, 35, 75, 30, 10]
+
+# numbers_x.insert(0, 12)
+print("given lists are\n")
+print(numbers_x)
+print(numbers_y)
+if numbers_x[0] == numbers_y[-1]:
+    print("result is", True)
+else:
+    print("result is", False)
+
+# # OTHER METHOD
+
+def checking(lst_1, lst_2):
+    if lst_1[0] == lst_2[-1]:
+        return "It is True"
+    else:
+        return "It is False"
+
+
+a = checking(numbers_x, numbers_y)
+print(a)
+
+# # # ----------------------------------------------------------------
+# # #  Exercise 6: Display numbers divisible by 5 from a list
+# # # ----------------------------------------------------------------
+
+my_list = [10, 20, 33, 46, 55, 89, 90, 34, 78, 45]
+
+def divisible_by_5(num):
+    return "No.s divisible by 5 are.."
+    for nums in num:
+        if nums % 5 == 0:
+            print(nums)
+
+
+
+    user = divisible_by_5(my_list)
+    print(my_list)
+
+print("Given list :", my_list)
+print("No.s divisible by 5 are..")
+for i in my_list:
+    if i % 5 == 0:
+        print(i)
+
+# # ----------------------------------------------------------------
+# # Exercise 7: Return the count of a given substring from a string
+# # ----------------------------------------------------------------
+
+str_x = "Emma is good developer. Emma is a writer"
+a = str_x.count("Emma")
+print(str_x[0:4], f"appeared {a} times")
+
+# # ----------------------------------------------------------------
+# # Exercise 8: Print the following pattern
+# # ----------------------------------------------------------------
+
+for i in range(1, 6):
+    print(str(i) * i)
+
+for num in range(10):
+    for j in range(num):
+        print(num, end = " ")
+    print("\n")
+
+# # ----------------------------------------------------------------
+# # Exercise 9: Check Palindrome Number
+# # ----------------------------------------------------------------
+
+
+def palindrome(num_1):
+    num_2 = num_1[::-1]
+    if num_1 == num_2:
+        return "Yes, given number is PALINDROME."
+    return "No, given number is not PALINDROME."
+
+
+print("Enter any number to check if it's a palindrome or  not.")
+inp_1 = input()
+
+result = palindrome(inp_1)
+print(result)
+
+# # -----------------------------------------------------------------------------
+# # Exercise 10: Create a new list from a two list using the following condition
+# # --> odd numbers from the first list and even numbers from the second list <--
+# # -----------------------------------------------------------------------------
+
+
+
+def result(list1, list2):
+    for i in list1:
+        if i % 2 != 0:
+            new_list.append(i)
+    for j in list2:
+        if j % 2 == 0:
+            new_list.append(j)
+    return new_list
+
+
+list1 = [10, 20, 25, 30, 35]
+list2 = [40, 45, 60, 75, 90]
+new_list = []
+print(" result list: ", result(list1, list2))
+
+# ----------------------------------------------------------------------------------------
+# Exercise 11: Write a Program to extract each digit from an integer in the reverse order.
+# ----------------------------------------------------------------------------------------
+
+# Copied as I didn't get this one
+
+number = 7536
+print("Given number", number)
+while number > 0:
+    # get the last digit
+    digit = number % 10
+    # remove the last digit and repeat the loop
+    number = number // 10
+    print(digit, end=" ")
+
+# NOW I HAVE GOT IT.
+
+# ----------------------------------------------------------------------------------------
+# Exercise 12: Calculate income tax for the given income by adhering to the below rules
+# Taxable Income	Rate (in %)
+# First $10,000	0
+# Next $10,000	10
+# The remaining	20
+# Expected Output:
+#
+# For example, suppose the taxable income is 45000 the income tax payable is
+#
+# 10000*0% + 10000*10%  + 25000*20% = $6000.
+# ----------------------------------------------------------------------------------------
+
+def tax(income):
+    x = income - 10000
+    y = 10000
+    z = x - y
+    taxable = (0.1 * y ) + (0.2 * z)
+    if income <= 10000:
+        return "You don't have to pay any taxes now."
+    elif income > 10000:
+        return f"Your tax amount is ${taxable}."
+    else:
+        return "ERROR, WRONG INPUT!!"
+
+print("Hello, Enter your income to know the amount you have to pay for tax.")
+user_input = int(input("Amount: $"))
+print(tax(user_input))
+
+# ----------------------------------------------------------------------------------------
+# Exercise 13: Print multiplication table form 1 to 10
+# ----------------------------------------------------------------------------------------
+
+# NESTED LOOP IS REQUIRED MORE LEARNING IS REQUIRED TO DO ADVANCE CODING
+
+for i in range(1, 11):
+    for j in range(1, 11):
+        print(i * j, end=" ")
+    print('')
+
+# i'll be needing a little more example of this
+
+# ----------------------------------------------------------------------------------------
+# Print downward Half-Pyramid Pattern with Star (asterisk)
+# ----------------------------------------------------------------------------------------
+
+for i in range(6, 0, -1):
+    for j in range(0, i-1):
+        print("*", end=' ')
+    print("")
+
+# ----------------------------------------------------------------------------------------
+# Exercise15: Write a function called exponent(base, exp) that returns an int value of base raises to the power of exp.
+# ----------------------------------------------------------------------------------------
+# 5 raises to the power of 4 is: 625
+# i.e. (5 *5 * 5 *5 = 625)
+
+
+def exponent(base, exp):
+    if exp == 0:
+        return 1
+    else:
+        for i in range(1, exp + 1):
+            i = base ** i
+    return f"{base} raises to the power of {exp} is: {i}"
+
+
+b = int(input("base : "))
+e = int(input("exponent : "))
+result = exponent(b, e)
+print(result)
