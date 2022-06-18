@@ -1,0 +1,65 @@
+import random
+
+print("Welcome to Indian version of\nROCK, PAPER AND SCISSORS")
+print("That is Snake, Water and Gun Game")
+player_name = input("Your Name: ").capitalize()
+options = ["Snake", "Water", "Gun"]
+no_of_turns = 5
+player_score = 0
+comp_score = 0
+
+while no_of_turns <= 5:
+    player_choice = input("Type what you wanna choose:\n").capitalize()
+    comp_choice = random.choice(options)
+    if player_choice == options[0]:
+        if comp_choice == options[1]:
+            print("Snakes drinks Water.")
+            player_score += 1
+            print(f"{player_name}'s score: {player_score}\nAI's score: {comp_score}")
+        elif comp_choice == options[2]:
+            print("Gun kills Snake.")
+            comp_score += 1
+            print(f"{player_name}'s score: {player_score}\nAI's score: {comp_score}")
+        else:
+            print("Snake and Snake are friends!!")
+            print(f"{player_name}'s score: {player_score}\nAI's score: {comp_score}")
+            no_of_turns += 1
+        no_of_turns -= 1
+    elif player_choice == options[1]:
+        if comp_choice == options[2]:
+            print("Gun drowns in Water.")
+            player_score += 1
+            print(f"{player_name}'s score: {player_score}\nAI's score: {comp_score}")
+        elif comp_choice == options[0]:
+            print("Snake drinks Water.")
+            comp_score += 1
+            print(f"{player_name}'s score: {player_score}\nAI's score: {comp_score}")
+        else:
+            print("Water mixes with Water!!")
+            no_of_turns += 1
+            print(f"{player_name}'s score: {player_score}\nAI's score: {comp_score}")
+        no_of_turns -= 1
+    elif player_choice == options[2]:
+        if comp_choice == options[0]:
+            print("Gun kills Snake.")
+            player_score += 1
+            print(f"{player_name}'s score: {player_score}\nAI's score: {comp_score}")
+        elif comp_choice == options[1]:
+            print("Gun drowns in Water.")
+            comp_score += 1
+            print(f"{player_name}'s score: {player_score}\nAI's score: {comp_score}")
+        else:
+            print("Woah! Hold On! No shooting here!!")
+            no_of_turns += 1
+            print(f"{player_name}'s score: {player_score}\nAI's score: {comp_score}")
+        no_of_turns -= 1
+    else:
+        print("ERROR! TRY AGAIN")
+        no_of_turns += 1
+    if no_of_turns == 0:
+        break
+
+if player_score >= 3:
+    print(f"{player_name} won!!")
+else:
+    print("AI won.")
